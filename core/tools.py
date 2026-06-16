@@ -1,4 +1,4 @@
-from data.loader import fetch_data
+from data.data_loader import fetch_data
 from core.analytics import compute_features
 
 def get_sp500():
