@@ -4,8 +4,8 @@ def compute_features(sp500, btc):
     sp500 = sp500.copy()
     btc = btc.copy()
 
-    sp500["return"] = sp500["price"].pct_change()
-    btc["return"] = btc["price"].pct_change()
+    sp500["return"] = sp500["close"].pct_change()
+    btc["return"] = btc["close"].pct_change()
 
     merged = pd.merge(
         sp500,

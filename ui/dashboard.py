@@ -1,10 +1,23 @@
 import streamlit as st
 
+
 def render_dashboard(data, analysis):
-    st.title("AI Market Intelligence")
+    st.markdown("---")
 
-    st.subheader("Market Data")
-    st.dataframe(data.tail())
+    # MARKET DATA SECTION
+    st.subheader("Market Data (Latest Snapshot)")
 
+    if data is not None:
+        st.dataframe(data.tail(30), use_container_width=True)
+    else:
+        st.warning("No market data available")
+
+    # AI ANALYSIS SECTION
     st.subheader("AI Analysis")
-    st.write(analysis)
+
+    if analysis:
+        st.write(analysis)
+    else:
+        st.warning("No analysis generated")
+
+    st.markdown("---")
