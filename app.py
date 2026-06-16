@@ -1,35 +1,17 @@
 import streamlit as st
-from data_loader import fetch_data
-from analytics import compute_features
-from llm import ask_llm
+from services.pipeline import run_system
+from ai.llm import ask_llm
+from core.tools import get_correlation, get_btc
 
-st.title("AI Market Intelligence Assistant")
+tools = {
+    "get_correlation": get_correlation,
+    "get_btc": get_btc
+}
 
-question = st.text_input("Ask a question about S&P 500 and Bitcoin")
+st.title("AI Market System")
+
+question = st.text_input("Ask a question")
 
 if question:
-    sp500 = fetch_data("^GSPC")
-    btc = fetch_data("BTC-USD")
-
-    df = compute_features(sp500, btc)
-
-    latest = df.tail(30)
-
-    context = f"""
-You are a financial analyst.
-
-Question:
-{question}
-
-Data (last 30 rows):
-{latest.to_string(index=False)}
-
-Focus on:
-- correlation
-- volatility
-- risk-on vs risk-off behavior
-"""
-
-    answer = ask_llm(context)
-
+    answer = run_system(question, ask_llm, tools)
     st.write(answer)
