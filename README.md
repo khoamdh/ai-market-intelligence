@@ -1,6 +1,6 @@
-# 📘 AI Market Intelligence System
+# AI Market Intelligence System
 
-## 🧠 Overview
+## Overview
 
 This project is a modular **AI-powered market intelligence system** that
 analyzes financial time-series data (S&P 500 and Bitcoin) and generates insights
@@ -12,7 +12,7 @@ engineered financial features and tool-based data access.
 
 ---
 
-## 🎯 Key Capabilities
+## Key Capabilities
 
 - Fetches real market data (S&P 500, Bitcoin) using Yahoo Finance
 - Computes financial indicators:
@@ -26,7 +26,7 @@ engineered financial features and tool-based data access.
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```text
 User Question
