@@ -10,8 +10,6 @@ Instead of a simple script or chatbot, the system is designed as a **structured
 data + AI pipeline**, where the LLM acts as a reasoning engine on top of
 engineered financial features and tool-based data access.
 
----
-
 ## Key Capabilities
 
 - Fetches real market data (S&P 500, Bitcoin) using Yahoo Finance
@@ -23,8 +21,6 @@ engineered financial features and tool-based data access.
 - Applies an LLM as a **reasoning agent**
 - Generates natural language market insights
 - Interactive dashboard using Streamlit
-
----
 
 ## System Architecture
 
@@ -48,4 +44,18 @@ LLM Agent (OpenAI GPT model)
 Insight Generation
       ↓
 Streamlit Output
+```
+
+## Run with Docker
+
+### Build image
+
+```bash
+docker build -t ai-market .
+```
+
+### Run container
+
+```bash
+docker run --rm -p 8501:8501 ai-market
 ```
